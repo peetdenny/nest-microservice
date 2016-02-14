@@ -13,7 +13,8 @@ import (
 
 
 func handler(w http.ResponseWriter, r *http.Request){
-	// OK, so I'm using curl for this because I couldn't get the OAuth Bearer header to work with Golang directly, and I only had an hour, don't you judge me!
+	// OK, so I'm using curl for this because I couldn't get the OAuth Bearer
+        // header to work with Golang directly, and I only had an hour, don't you judge me!
 	line := "curl -v -L -H \"Authorization: Bearer"+bearer+" \" -X GET https://developer-api.nest.com/devices/smoke_co_alarms/"+device
 	 out, err := exec.Command("bash", "-c", line).Output()
      	 if err != nil {
@@ -21,7 +22,8 @@ func handler(w http.ResponseWriter, r *http.Request){
     	 }
 	var m map[string]string
 	json.Unmarshal(out, &m)
-	message := fmt.Sprintf("The Nest in your %s reports %s for smoke, and %s for Carbon Monoxide. The battery reports %s. Overall the status is %s", 
+	message := fmt.Sprintf(
+		"The Nest in your %s reports %s for smoke, and %s for Carbon Monoxide. The battery reports %s. Overall the status is %s", 
 		m["name"],
 		m["smoke_alarm_state"],
 		m["co_alarm_state"],
