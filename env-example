@@ -1,0 +1,7 @@
+# make a copy of this named .env in this directory and set all of the below variables
+# Instructions on how to get the Device and Bearer values can be found here
+# https://developer.nest.com/documentation/cloud/rest-quick-guide
+
+export DEVICE= # This is the ID of your device
+export PORT= # The port you want you microservice to run on 
+export BEARER= # The security token (as per the instructions above)
