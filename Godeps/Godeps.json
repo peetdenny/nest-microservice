@@ -1,0 +1,5 @@
+{
+	"ImportPath": "github.com/peetdenny/nest-microservice",
+	"GoVersion": "go1.5.3",
+	"Deps": []
+}
