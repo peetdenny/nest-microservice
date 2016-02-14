@@ -23,12 +23,13 @@ func handler(w http.ResponseWriter, r *http.Request){
 	var m map[string]string
 	json.Unmarshal(out, &m)
 	message := fmt.Sprintf(
-		"The Nest in your %s reports %s for smoke, and %s for Carbon Monoxide. The battery reports %s. Overall the status is %s", 
+		"The Nest in your %s reports %s for smoke, and %s for Carbon Monoxide. The battery reports %s. Overall the status is %s. The last update was at %s", 
 		m["name"],
 		m["smoke_alarm_state"],
 		m["co_alarm_state"],
 		m["battery_health"],
 		m["ui_color_state"],
+		m["last_connection"],
 	)
 	fmt.Fprintf(w, message)
 }
