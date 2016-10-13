@@ -47,13 +47,12 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	message := fmt.Sprintf(
-		"The Nest in your %s reports %s for smoke, and %s for Carbon Monoxide. The battery reports %s. Overall the status is %s. The last update was at %s",
+		"The Nest in your %s reports %s for smoke, and %s for Carbon Monoxide. The battery reports %s. Overall the status is %s.",
 		health.Name,
 		health.SmokeState,
 		health.COState,
 		health.BatteryHealth,
 		health.UIState,
-		health.LastConn,
 	)
 	fmt.Fprintf(w, message)
 }
